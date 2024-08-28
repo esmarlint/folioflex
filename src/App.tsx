@@ -10,11 +10,14 @@ import {
   Briefcase,
   GraduationCap,
   Star,
+  Send,
 } from "lucide-react";
 
 import { Button } from "./components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
 import { Badge } from "./components/ui/badge";
+import { Input } from "./components/ui/input";
+import { Textarea } from "./components/ui/textarea";
 
 interface Skill {
   name: string;
@@ -34,6 +37,30 @@ function App() {
 
   const toggleLanguage = () => {
     setLanguage(language === "es" ? "en" : "es");
+  };
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Aquí puedes agregar la lógica para enviar el formulario
+    console.log("Formulario enviado:", formData);
+    // Reiniciar el formulario
+    setFormData({ name: "", email: "", message: "" });
   };
 
   const skills: Skill[] = [
@@ -97,6 +124,12 @@ function App() {
               href='#education'
             >
               Educación
+            </a>
+            <a
+              className='text-sm font-medium hover:underline underline-offset-4'
+              href='#contact'
+            >
+              Contacto
             </a>
             <Button variant='ghost' size='icon' onClick={toggleDarkMode}>
               {darkMode ? (
@@ -692,55 +725,65 @@ function App() {
             <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8'>
               Contacto
             </h2>
-            <form className='grid gap-6 md:grid-cols-2'>
-              <div className='flex flex-col'>
-                <label htmlFor='name' className='text-lg font-medium mb-2'>
-                  Nombre
-                </label>
-                <input
-                  type='text'
-                  id='name'
-                  name='name'
-                  className='border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary'
-                  placeholder='Tu nombre'
-                  required
-                />
-              </div>
-              <div className='flex flex-col'>
-                <label htmlFor='email' className='text-lg font-medium mb-2'>
-                  Correo Electrónico
-                </label>
-                <input
-                  type='email'
-                  id='email'
-                  name='email'
-                  className='border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary'
-                  placeholder='Tu correo electrónico'
-                  required
-                />
-              </div>
-              <div className='flex flex-col md:col-span-2'>
-                <label htmlFor='message' className='text-lg font-medium mb-2'>
-                  Mensaje
-                </label>
-                <textarea
-                  id='message'
-                  name='message'
-                  rows={5}
-                  className='border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary'
-                  placeholder='Escribe tu mensaje aquí...'
-                  required
-                ></textarea>
-              </div>
-              <div className='md:col-span-2 flex justify-center'>
-                <button
-                  type='submit'
-                  className='bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary'
-                >
-                  Enviar Mensaje
-                </button>
-              </div>
-            </form>
+            <Card>
+              <CardContent className='p-6'>
+                <form onSubmit={handleSubmit} className='space-y-6'>
+                  <div>
+                    <label
+                      htmlFor='name'
+                      className='block text-sm font-medium mb-2'
+                    >
+                      Nombre
+                    </label>
+                    <Input
+                      id='name'
+                      name='name'
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder='Tu nombre'
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor='email'
+                      className='block text-sm font-medium mb-2'
+                    >
+                      Email
+                    </label>
+                    <Input
+                      id='email'
+                      name='email'
+                      type='email'
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder='tu@email.com'
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor='message'
+                      className='block text-sm font-medium mb-2'
+                    >
+                      Mensaje
+                    </label>
+                    <Textarea
+                      id='message'
+                      name='message'
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      placeholder='Tu mensaje'
+                      required
+                    />
+                  </div>
+                  <Button type='submit' className='w-full'>
+                    <Send className='w-4 h-4 mr-2' />
+                    Enviar mensaje
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </section>
       </main>
