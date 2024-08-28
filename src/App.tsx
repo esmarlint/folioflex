@@ -38,16 +38,20 @@ function App() {
 
   const skills: Skill[] = [
     { name: "JavaScript", icon: "javascript-icon.svg" },
+    { name: "TypeScript", icon: "typescript-icon.svg" },
     { name: "React", icon: "react-icon.svg" },
+    { name: "TailwindCSS", icon: "tailwindcss-icon.svg" },
+
     { name: "Node.js", icon: "node-icon.svg" },
     { name: "C#", icon: "csharp-icon.svg" },
     { name: ".NET", icon: "dotnet-icon.svg" },
-    { name: "SQL", icon: "sql-icon.svg" },
+
+    { name: "SQL Server", icon: "sql-server-icon.svg" },
+
     { name: "Git", icon: "git-icon.svg" },
-    { name: "AWS", icon: "aws-icon.svg" },
-    { name: "TailwindCSS", icon: "tailwindcss-icon.svg" },
     { name: "Docker", icon: "docker-icon.svg" },
-    { name: "TypeScript", icon: "typescript-icon.svg" },
+    { name: "AWS", icon: "aws-icon.svg" },
+
     { name: "PHP", icon: "php-icon.svg" },
   ];
 
@@ -121,16 +125,31 @@ function App() {
                   {name}
                 </h1>
                 <p className='mx-auto max-w-[700px] text-muted-foreground md:text-xl'>
-                  Ingeniero de Software | Especialista en backend con
-                  experiencia en frontend, optimización, y escalabilidad de
-                  aplicaciones.
+                  <span className='font-bold text-primary'>
+                    Ingeniero de Software
+                  </span>{" "}
+                  | Especialista en{" "}
+                  <span className='font-bold text-primary'>backend</span> con
+                  experiencia en{" "}
+                  <span className='font-bold text-primary'>frontend</span>,
+                  optimización, y escalabilidad de aplicaciones.
                 </p>
                 <p className='mx-auto max-w-[700px] text-muted-foreground md:text-xl'>
-                  Soy un desarrollador apasionado, experto en .NET y C#, con
-                  competencias adicionales en React, TypeScript, y TailwindCSS.
+                  Soy un{" "}
+                  <span className='font-bold text-primary'>
+                    desarrollador apasionado
+                  </span>
+                  , experto en{" "}
+                  <span className='font-bold text-primary'>.NET</span> y{" "}
+                  <span className='font-bold text-primary'>C#</span>, con
+                  competencias adicionales en{" "}
+                  <span className='font-bold text-primary'>React</span>,{" "}
+                  <span className='font-bold text-primary'>TypeScript</span>, y{" "}
+                  <span className='font-bold text-primary'>TailwindCSS</span>.
                   Entusiasta de la resolución de problemas y la creación de
                   productos digitales visualmente atractivos.
                 </p>
+
                 <div className='flex justify-center md:justify-start space-x-4 mt-4'>
                   <Button variant='outline' size='icon'>
                     <Mail className='h-4 w-4' />
@@ -662,6 +681,66 @@ function App() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </section>
+
+        <section
+          className='w-full py-12 md:py-24 lg:py-32 bg-muted'
+          id='contact'
+        >
+          <div className='container px-4 md:px-6'>
+            <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8'>
+              Contacto
+            </h2>
+            <form className='grid gap-6 md:grid-cols-2'>
+              <div className='flex flex-col'>
+                <label htmlFor='name' className='text-lg font-medium mb-2'>
+                  Nombre
+                </label>
+                <input
+                  type='text'
+                  id='name'
+                  name='name'
+                  className='border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary'
+                  placeholder='Tu nombre'
+                  required
+                />
+              </div>
+              <div className='flex flex-col'>
+                <label htmlFor='email' className='text-lg font-medium mb-2'>
+                  Correo Electrónico
+                </label>
+                <input
+                  type='email'
+                  id='email'
+                  name='email'
+                  className='border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary'
+                  placeholder='Tu correo electrónico'
+                  required
+                />
+              </div>
+              <div className='flex flex-col md:col-span-2'>
+                <label htmlFor='message' className='text-lg font-medium mb-2'>
+                  Mensaje
+                </label>
+                <textarea
+                  id='message'
+                  name='message'
+                  rows={5}
+                  className='border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary'
+                  placeholder='Escribe tu mensaje aquí...'
+                  required
+                ></textarea>
+              </div>
+              <div className='md:col-span-2 flex justify-center'>
+                <button
+                  type='submit'
+                  className='bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary'
+                >
+                  Enviar Mensaje
+                </button>
+              </div>
+            </form>
           </div>
         </section>
       </main>
