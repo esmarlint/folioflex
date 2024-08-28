@@ -42,12 +42,13 @@ function App() {
     { name: "Node.js", icon: "node-icon.svg" },
     { name: "C#", icon: "csharp-icon.svg" },
     { name: ".NET", icon: "dotnet-icon.svg" },
-    { name: "SQL", icon: "sql-server-icon.svg" },
+    { name: "SQL", icon: "sql-icon.svg" },
     { name: "Git", icon: "git-icon.svg" },
     { name: "AWS", icon: "aws-icon.svg" },
     { name: "TailwindCSS", icon: "tailwindcss-icon.svg" },
     { name: "Docker", icon: "docker-icon.svg" },
     { name: "TypeScript", icon: "typescript-icon.svg" },
+    { name: "PHP", icon: "php-icon.svg" },
   ];
 
   return (
@@ -194,7 +195,6 @@ function App() {
               Proyectos Destacados
             </h2>
             <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-              {/* Proyecto 1 */}
               <Card className='overflow-hidden'>
                 <CardHeader className='p-0'>
                   <img
@@ -232,7 +232,6 @@ function App() {
                   </div>
                 </CardContent>
               </Card>
-              {/* Repite la estructura de la Card para otros proyectos */}
               <Card className='overflow-hidden'>
                 <CardHeader className='p-0'>
                   <img
@@ -300,6 +299,42 @@ function App() {
                       size='sm'
                       onClick={() =>
                         window.open("https://www.mdcalc.com/", "_blank")
+                      }
+                    >
+                      <ExternalLink className='h-4 w-4 mr-2' />
+                      Ver proyecto
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className='overflow-hidden'>
+                <CardHeader className='p-0'>
+                  <img
+                    src='/apsars.png'
+                    alt='APS ARS'
+                    className='w-full h-48 object-cover'
+                  />
+                </CardHeader>
+                <CardContent className='p-4'>
+                  <CardTitle className='flex items-center space-x-2 text-lg font-bold mb-2'>
+                    <Star className='h-5 w-5 text-yellow-400' />
+                    <span>APS ARS Authorization Page </span>
+                  </CardTitle>
+                  <p className='text-sm text-muted-foreground mb-4'>
+                    Web para autorización de servicios médicos de APS ARS y
+                    carnetización de afiliados en linea.
+                  </p>
+                  <div className='flex flex-wrap gap-2 mb-4'>
+                    <Badge variant='secondary'>.NET</Badge>
+                    <Badge variant='secondary'>PHP</Badge>
+                    <Badge variant='secondary'>MySQL</Badge>
+                  </div>
+                  <div className='flex space-x-2'>
+                    <Button
+                      variant='outline'
+                      size='sm'
+                      onClick={() =>
+                        window.open("https://apsars.do/", "_blank")
                       }
                     >
                       <ExternalLink className='h-4 w-4 mr-2' />
@@ -400,7 +435,6 @@ function App() {
                 </CardContent>
               </Card>
 
-              {/* GBH */}
               <Card>
                 <CardContent className='p-6'>
                   <div className='flex items-center space-x-4 mb-4'>
@@ -444,7 +478,6 @@ function App() {
                 </CardContent>
               </Card>
 
-              {/* Banco Promerica */}
               <Card>
                 <CardContent className='p-6'>
                   <div className='flex items-center space-x-4 mb-4'>
@@ -481,7 +514,6 @@ function App() {
                 </CardContent>
               </Card>
 
-              {/* Newtech */}
               <Card>
                 <CardContent className='p-6'>
                   <div className='flex items-center space-x-4 mb-4'>
@@ -519,7 +551,6 @@ function App() {
                 </CardContent>
               </Card>
 
-              {/* APS ARS */}
               <Card>
                 <CardContent className='p-6'>
                   <div className='flex items-center space-x-4 mb-4'>
@@ -566,7 +597,6 @@ function App() {
               Educación
             </h2>
             <div className='space-y-8'>
-              {/* Educación 1 */}
               <Card>
                 <CardContent className='p-6'>
                   <div className='flex items-center space-x-4 mb-4'>
@@ -580,7 +610,9 @@ function App() {
                       </h4>
                     </div>
                   </div>
-                  <p className='text-sm text-muted-foreground mb-2'>2021</p>
+                  <p className='text-sm text-muted-foreground mb-2'>
+                    2017 - 2021
+                  </p>
                   <p className='text-sm text-muted-foreground'>
                     Programa integral de ingeniería de software con enfoque en
                     desarrollo web, bases de datos, algoritmos y estructuras de
@@ -588,7 +620,47 @@ function App() {
                   </p>
                 </CardContent>
               </Card>
-              {/* Repite la estructura de la Card para otras entradas educativas */}
+
+              <Card>
+                <CardContent className='p-6'>
+                  <div className='flex items-center space-x-4 mb-4'>
+                    <GraduationCap className='h-6 w-6 text-primary' />
+                    <div>
+                      <h3 className='text-xl font-bold'>
+                        Agile Project Management
+                      </h3>
+                      <h4 className='text-lg font-semibold text-muted-foreground'>
+                        Cobalto Consulting
+                      </h4>
+                    </div>
+                  </div>
+                  <p className='text-sm text-muted-foreground mb-2'>2021</p>
+                  <p className='text-sm text-muted-foreground'>
+                    Certificación en gestión de proyectos ágiles con Scrum
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className='p-6'>
+                  <div className='flex items-center space-x-4 mb-4'>
+                    <GraduationCap className='h-6 w-6 text-primary' />
+                    <div>
+                      <h3 className='text-xl font-bold'>
+                        Técnico en Desarrollo de aplicaciones
+                      </h3>
+                      <h4 className='text-lg font-semibold text-muted-foreground'>
+                        Instituto Nacional De Foramación Técnico Profesional
+                      </h4>
+                    </div>
+                  </div>
+                  <p className='text-sm text-muted-foreground mb-2'>2016</p>
+                  <p className='text-sm text-muted-foreground'>
+                    Programa de formación técnica en desarrollo de aplicaciones
+                    Algoritmia, programación, bases de datos y desarrollo web.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
